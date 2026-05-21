@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:1200px;
+      background:#020b3d;
+      border-radius:20px;
+      padding:18px 28px 30px;
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .container::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(140,0,255,.25), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(0,140,255,.18), transparent 35%);
+      pointer-events:none;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+      position:relative;
+      z-index:2;
+    }
+
+    .logo{
+      color:#fff;
+      font-size:25px;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:60px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-size:17px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#b14dff;
+    }
+
+    /* CONTENT BOX */
+    .content-box{
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:25px;
+      position:relative;
+      z-index:2;
+      background:rgba(2, 7, 40, 0.45);
+      backdrop-filter:blur(5px);
+    }
+
+    .top-buttons{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 22px;
+      border-radius:12px;
+      text-decoration:none;
+      color:white;
+      font-size:15px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .back-btn{
+      border:1px solid #7a39ff;
+      background:transparent;
+      box-shadow:0 0 15px rgba(122,57,255,.25);
+    }
+
+    .back-btn:hover{
+      background:#7a39ff;
+      transform:translateY(-2px);
+    }
+
+    .pdf-btn{
+      background:linear-gradient(90deg,#7a39ff,#d032ff);
+      box-shadow:0 0 20px rgba(170,0,255,.35);
+    }
+
+    .pdf-btn:hover{
+      transform:translateY(-2px) scale(1.03);
+    }
+
+    /* TITLE */
+    .title{
+      text-align:center;
+      color:white;
+      font-size:54px;
+      font-weight:700;
+      margin:10px 0 35px;
+    }
+
+    .title-line{
+      width:120px;
+      height:5px;
+      background:#9b30ff;
+      margin:12px auto 0;
+      border-radius:20px;
+      box-shadow:0 0 15px #9b30ff;
+    }
+
+    /* ARTICLE */
+    .article{
+      max-width:920px;
+      margin:auto;
+      background:#151f58;
+      padding:35px 45px;
+      border-radius:25px;
+      color:#e7e7e7;
+      line-height:1.9;
+      font-size:22px;
+      box-shadow:
+      inset 0 0 25px rgba(255,255,255,0.03),
+      0 0 25px rgba(0,0,0,0.3);
+    }
+
+    .article p{
+      margin-bottom:28px;
+    }
+
+    .divider{
+      width:100%;
+      height:1px;
+      background:rgba(255,255,255,0.18);
+      margin:25px 0;
+    }
+
+    /* QUOTE */
+    .quote-box{
+      margin-top:35px;
+      background:#2c1d67;
+      border-radius:18px;
+      padding:28px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .quote-box::before{
+      content:"“";
+      position:absolute;
+      left:35px;
+      top:10px;
+      color:white;
+      font-size:70px;
+      opacity:.9;
+    }
+
+    .quote-box::after{
+      content:"”";
+      position:absolute;
+      right:35px;
+      bottom:-18px;
+      color:white;
+      font-size:70px;
+      opacity:.9;
+    }
+
+    .quote{
+      color:white;
+      font-size:30px;
+      font-weight:300;
+      line-height:1.7;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+
+      .navbar{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .nav-links{
+        gap:25px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .title{
+        font-size:38px;
+      }
+
+      .article{
+        font-size:18px;
+        padding:25px;
+      }
+
+      .quote{
+        font-size:22px;
+      }
+    }
+
+    @media(max-width:700px){
+
+      .top-buttons{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .title{
+        font-size:30px;
+      }
+
+      .article{
+        font-size:16px;
+      }
+
+      .quote{
+        font-size:18px;
+      }
+
+      .logo{
+        font-size:20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">Tri Wahyuning Tyas</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#my info">My Info</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact me">Contact Me</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-box">
+
+      <div class="top-buttons">
+
+        <a href="index.html" class="btn back-btn">
+          ← Back to Home
+        </a>
+
+        <a href="#" class="btn pdf-btn">
+          ⬇ Download as PDF
+        </a>
+
+      </div>
+      <!-- TITLE -->
+      <div class="title">
+        My Experience Creating a Website
+        <div class="title-line"></div>
+      </div>
+
+      <!-- ARTICLE -->
+      <div class="article">
+
+        <p>
+          Recently, I had an exciting experience creating my own website for a school project.
+          At first, I felt confused because I did not understand how to design and code a website.
+          However, I was very interested in learning new things, so I started studying HTML,
+          CSS, and a little bit of JavaScript from the internet and YouTube tutorials.
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+          The first step was planning the design of the website. I created a simple layout
+          in Figma and chose colors, fonts, and images that matched the theme. After that,
+          I started coding the website using HTML for the structure and CSS for the design.
+          It was difficult at the beginning because I often made mistakes in the code,
+          but I kept trying and fixing the errors.
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+          One of the most enjoyable parts was making the website responsive so it could look
+          good on both computers and mobile phones. I also added animations and interactive
+          buttons to make the website more attractive. When the website was finally finished,
+          I felt very proud and happy because I created it by myself.
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+          From this experience, I learned that building a website needs creativity,
+          patience, and problem-solving skills. It also improved my confidence and
+          motivated me to learn more about web development in the future.
+        </p>
+
+        <!-- QUOTE -->
+        <div class="quote-box">
+          <div class="quote">
+            Every line of code I write today <br>
+            is a step toward a better version of me tomorrow.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
